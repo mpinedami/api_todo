@@ -1,8 +1,8 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
-from apps.books.factories import BookFactory
-from apps.books.models import Book
+from apps.todos.factories import TodoFactory
+from apps.todos.models import Todo
 
 
 class Command(BaseCommand):
@@ -19,21 +19,21 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **options):
-        if Book.objects.exists():
+        if Todo.objects.exists():
             raise CommandError(
-                "This command cannot be run when any question exist, to guard"
+                "This command cannot be run when any todo exist, to guard"
                 + " against accidental use on production."
             )
 
         self.stdout.write("Seeding database...")
 
-        create_book()
+        create_todo()
 
         self.stdout.write("Done.")
 
 
-def create_book():
+def create_todo():
     """
     Create two Question objects and two Choice Objects too
     """
-    book1, book2, book3, book4, book5 = BookFactory.create_batch(5)
+    todo1, todo2, todo3, todo4, todo5 = TodoFactory.create_batch(5)

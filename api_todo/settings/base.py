@@ -33,6 +33,8 @@ INSTALLED_APPS_THIRD_PARTY = [
     "debug_toolbar",
     "django_linear_migrations",
     "rest_framework",
+    "corsheaders",
+    "whitenoise.runserver_nostatic",
 ]
 
 
@@ -67,6 +69,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # Third party
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 
@@ -127,4 +131,28 @@ AUTH_PASSWORD_VALIDATORS = [
 # PROJECT SETTINS
 
 
+CORS_ALLOWED_ORIGINS = ["http://localhost:8000", "http://localhost:3000"]
+
+
+CSRF_TRUSTED_ORIGINS = [
+    "localhost:3000"
+]  # PERMITIR FORMULARIOS SIN CSRF DESDE UN FRONTEND EN REACT, VUE O ANGULAR
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
+    ],
+}
+
+
 STATIC_URL = "static/"
+
+
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

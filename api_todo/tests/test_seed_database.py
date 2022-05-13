@@ -5,7 +5,7 @@ from django.core.management import call_command
 from django.core.management.base import CommandError
 from django.test import TestCase
 
-from apps.books.models import Book
+from apps.todos.models import Todo
 
 
 class SeedDatabaseTests(TestCase):
@@ -22,9 +22,9 @@ class SeedDatabaseTests(TestCase):
         return out.getvalue(), err.getvalue()
 
     def test_error_data_exists(self):
-        Book.objects.create(title="Funciona la prubea?")
+        Todo.objects.create(title="Funciona la prubea?")
         msg = (
-            "This command cannot be run when any question exist, to guard"
+            "This command cannot be run when any todo exist, to guard"
             + " against accidental use on production."
         )
 

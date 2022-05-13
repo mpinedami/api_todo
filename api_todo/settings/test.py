@@ -1,1 +1,1 @@
-from core.settings.base import *  # noqa
+from api_todo.settings.base import *  # noqa
