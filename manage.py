@@ -16,7 +16,7 @@ def main():
     if command == "test":
         default = "api_todo.settings.test"
     else:
-        default = "api_todo.settings.development"
+        default = "api_todo.settings.production"
 
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", default)
     try:
