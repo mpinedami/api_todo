@@ -135,7 +135,8 @@ CORS_ALLOWED_ORIGINS = ["http://localhost:8000", "http://localhost:3000"]
 
 
 CSRF_TRUSTED_ORIGINS = [
-    "localhost:3000"
+    "http://localhost:3000",
+    "http://localhost:8000",
 ]  # PERMITIR FORMULARIOS SIN CSRF DESDE UN FRONTEND EN REACT, VUE O ANGULAR
 
 
