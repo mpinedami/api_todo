@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "todo"
+version = "0.1.0"
+description = "\"\"API TODO\""
+authors = ["Maynor Pineda <mpineda@mediainteractiva.net>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.0.4"
+django-rest-framework = "^0.1.0"
+
+[tool.poetry.dev-dependencies]
+django-linear-migrations = "^2.4.0"
+django-debug-toolbar = "^3.4.0"
+black = "^22.3.0"
+rich = "^12.4.1"
+ipython = "^8.3.0"
+flake8 = "^4.0.1"
+pylint = "^2.13.8"
+django-migration-linter = "^4.1.0"
+isort = "^5.10.1"
+
+[tool.black]
+target-version = ['py310']
+line-lenth = 79
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
